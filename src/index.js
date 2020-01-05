@@ -15,6 +15,8 @@ const path = require("path");
 const excludeList = [
   "!src/main.(ts|js)",
   "!src/karma*.js",
+  "!src/polyfills.ts",
+  "!src/test.ts",
   "!**/*.module.(ts|js)",
   "!**/environment*.(ts|js)",
   "!**/*.model.ts",
@@ -68,7 +70,9 @@ const excludeList = [
   }
 
   if (untestedFiles.length > 0) {
-    console.log("Those files are untested:");
+    console.log(
+      `Those ${untestedFiles.length} files doesn't have corresponding spec files:`
+    );
 
     untestedFiles.forEach(file => {
       console.log(`  ${file}.ts`); // TODO: make this extension dynamic
