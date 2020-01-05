@@ -5,18 +5,20 @@ const _ = require("lodash");
 const program = require("commander");
 program.version(require("../package.json").version, "-v, --version");
 
+program.option("-d, --debug", "output extra debugging");
+
 program.parse(process.argv);
 
 const globby = require("globby");
 const path = require("path");
 
 const excludeList = [
-    "!src/main.(ts|js)",
-    "!src/karma*.js",
-    "!**/*.module.(ts|js)",
-    "!**/environment*.(ts|js)",
-    "!**/*.model.ts",
-    "!**/*.routes.ts"
+  "!src/main.(ts|js)",
+  "!src/karma*.js",
+  "!**/*.module.(ts|js)",
+  "!**/environment*.(ts|js)",
+  "!**/*.model.ts",
+  "!**/*.routes.ts"
 ];
 
 (async () => {
@@ -24,14 +26,14 @@ const excludeList = [
     // Specify include patterns first
     "src/**/(*.spec).(ts|js)",
     // Specify "do not include" patterns (note `!` sign on the beggining of each statement)
-    ...excludeList,
+    ...excludeList
   ]);
 
   const codeFiles = await globby([
     // Specify include patterns first
     "src/**/!(*.spec).(ts|js)",
     // Specify "do not include" patterns (note `!` sign on the beggining of each statement)
-    ...excludeList,
+    ...excludeList
   ]);
 
   const codeBaseNames = codeFiles.map(fullPath => {
@@ -55,21 +57,24 @@ const excludeList = [
   });
 
   const untestedFiles = _.difference(codeBaseNames, specBaseNames);
-    if(untestedFiles.length > 0) {
-        console.log('Those files are untested:')
 
-        untestedFiles.forEach(file => {
-            console.log(`  ${file}.ts`); // TODO: make this extension dynamic
-        });
-        process.exit(1);
-    }
+  if (program.debug) {
+    console.log("codeFiles", codeFiles);
+    console.log("testFiles", specFiles);
+    console.log("codeBaseNames", codeBaseNames);
+    console.log("specBaseNames", specBaseNames);
 
-    // TODO: add debug CLI option to show this
-    // console.log("codeFiles", codeFiles);
-    // console.log("testFiles", specFiles);
-    // console.log("codeBaseNames", codeBaseNames);
-    // console.log("specBaseNames", specBaseNames);
+    console.log("untestedFiles", untestedFiles);
+  }
 
-    // console.log("untestedFiles", untestedFiles);
-    process.exit(0)
+  if (untestedFiles.length > 0) {
+    console.log("Those files are untested:");
+
+    untestedFiles.forEach(file => {
+      console.log(`  ${file}.ts`); // TODO: make this extension dynamic
+    });
+    process.exit(1);
+  }
+
+  process.exit(0);
 })();
