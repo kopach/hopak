@@ -45,7 +45,10 @@ const excludeList = [
       `${path.extname(fullPath)}`
     );
 
-    return `${dirname}/${fileWithoutExtension}`;
+    return {
+      fullPath,
+      base: `${dirname}/${fileWithoutExtension}`,
+    };
   });
 
   const specBaseNames = specFiles.map(fullPath => {
@@ -55,10 +58,17 @@ const excludeList = [
       `.spec${path.extname(fullPath)}`
     );
 
-    return `${dirname}/${fileWithoutExtensionAndSpec}`;
+    return {
+      fullPath,
+      base: `${dirname}/${fileWithoutExtensionAndSpec}`,
+    };
   });
 
-  const untestedFiles = _.difference(codeBaseNames, specBaseNames);
+  const untestedFiles = _.differenceWith(
+    codeBaseNames,
+    specBaseNames,
+    (a, b) => a.base === b.base
+  );
 
   if (program.debug) {
     console.log("codeFiles", codeFiles);
@@ -71,11 +81,11 @@ const excludeList = [
 
   if (untestedFiles.length > 0) {
     console.log(
-      `Those ${untestedFiles.length} files doesn't have corresponding spec files:`
+      `ERROR: ${untestedFiles.length} files doesn't have corresponding *.spec* file:`
     );
 
     untestedFiles.forEach(file => {
-      console.log(`  ${file}.ts`); // TODO: make this extension dynamic
+      console.log(`  ${file.fullPath}`); // TODO: make this extension dynamic
     });
     process.exit(1);
   }
