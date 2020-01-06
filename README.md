@@ -2,6 +2,14 @@
 
 Checks each code file has it's corresponding *.spec.(js|ts) file 
 
+## 🔨 Usage
+
+```bash
+npm install -g hopak
+cd <project-directory>
+hopak
+```
+
 ## Current pattern list (Most suitable for Angular projects)
 
 ### Code file patterns
