@@ -8,6 +8,14 @@
     "start": "node src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kopach/hopak.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kopach/hopak/issues"
+  },
+  "homepage": "https://github.com/kopach/hopak",
   "author": "Ihor Kopach (https://github.com/kopach)",
   "license": "MIT",
   "dependencies": {
