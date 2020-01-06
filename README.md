@@ -18,7 +18,7 @@ hopak
 [
     "src/**/!(*.spec).(ts|js)",
     "!**/karma*.(ts|js)",
-    "!**/polyfills..(ts|js)",
+    "!**/polyfills.(ts|js)",
     "!src/test.(ts|js)",
     "!**/*.module.(ts|js)",
     "!**/*.interface.(ts|js)",
