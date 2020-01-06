@@ -1,4 +1,4 @@
-# spec-checker
+# hopak
 
 ## Current pattern list (Most suitable for Angular projects)
 

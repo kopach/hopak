@@ -1,5 +1,5 @@
 {
-  "name": "spec-checker",
+  "name": "hopak",
   "version": "0.1.0",
   "description": "Check each src file has it's corresponding *.spec.(js|ts) file",
   "main": "src/index.js",
@@ -8,7 +8,7 @@
     "start": "node src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ihor Kopach <fixme@example.com> (https://github.com/kopach)",
+  "author": "Ihor Kopach (https://github.com/kopach)",
   "license": "MIT",
   "dependencies": {
     "commander": "4.0.1",
