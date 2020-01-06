@@ -7,14 +7,16 @@
 ```JavaScript
 [
     "src/**/!(*.spec).(ts|js)",
-    "!**/karma*.js",
-    "!**/polyfills.ts",
-    "!src/polyfills.ts",
-    "!src/test.ts",
+    "!**/karma*.(ts|js)",
+    "!**/polyfills..(ts|js)",
+    "!src/test.(ts|js)",
     "!**/*.module.(ts|js)",
+    "!**/*.interface.(ts|js)",
     "!**/environment*.(ts|js)",
-    "!**/*.model.ts",
-    "!**/*.routes.ts"
+    "!**/*.model.(ts|js)",
+    "!**/*.enum.(ts|js)",
+    "!**/*.routes.(ts|js)",
+    "!**/index.(ts|js)"
 ]
 ```
 
@@ -23,14 +25,16 @@
 ```JavaScript
 [
     "src/**/(*.spec).(ts|js)",
-    "!src/main.(ts|js)",
-    "!**/karma*.js",
-    "!**/polyfills.ts",
-    "!src/test.ts",
+    "!**/karma*.(ts|js)",
+    "!**/polyfills..(ts|js)",
+    "!src/test.(ts|js)",
     "!**/*.module.(ts|js)",
+    "!**/*.interface.(ts|js)",
     "!**/environment*.(ts|js)",
-    "!**/*.model.ts",
-    "!**/*.routes.ts"
+    "!**/*.model.(ts|js)",
+    "!**/*.enum.(ts|js)",
+    "!**/*.routes.(ts|js)",
+    "!**/index.(ts|js)"
 ]
 ```
 
