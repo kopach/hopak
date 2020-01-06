@@ -14,8 +14,8 @@ const path = require("path");
 
 const excludeList = [
   "!src/main.(ts|js)",
-  "!src/karma*.js",
-  "!src/polyfills.ts",
+  "!**/karma*.js",
+  "!**/polyfills.ts",
   "!src/test.ts",
   "!**/*.module.(ts|js)",
   "!**/environment*.(ts|js)",
@@ -47,7 +47,7 @@ const excludeList = [
 
     return {
       fullPath,
-      base: `${dirname}/${fileWithoutExtension}`,
+      base: `${dirname}/${fileWithoutExtension}`
     };
   });
 
@@ -60,7 +60,7 @@ const excludeList = [
 
     return {
       fullPath,
-      base: `${dirname}/${fileWithoutExtensionAndSpec}`,
+      base: `${dirname}/${fileWithoutExtensionAndSpec}`
     };
   });
 
@@ -85,7 +85,7 @@ const excludeList = [
     );
 
     untestedFiles.forEach(file => {
-      console.log(`  ${file.fullPath}`); // TODO: make this extension dynamic
+      console.log(`  ${file.fullPath}`);
     });
     process.exit(1);
   }

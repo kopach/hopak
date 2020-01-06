@@ -1,6 +1,6 @@
 {
   "name": "spec-checker",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Check each src file has it's corresponding *.spec.(js|ts) file",
   "main": "src/index.js",
   "bin": "src/index.js",
