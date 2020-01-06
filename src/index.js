@@ -16,6 +16,7 @@ const excludeList = [
   "!src/main.(ts|js)",
   "!**/karma*.(ts|js)",
   "!**/polyfills.(ts|js)",
+  "!**/public_api.(ts|js)",
   "!src/test.(ts|js)",
   "!**/*.module.(ts|js)",
   "!**/*.interface.(ts|js)",
