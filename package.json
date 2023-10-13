@@ -19,7 +19,7 @@
   "author": "Ihor Kopach (https://github.com/kopach)",
   "license": "MIT",
   "dependencies": {
-    "commander": "4.0.1",
+    "commander": "11.1.0",
     "globby": "10.0.1",
     "lodash": "4.17.15"
   }
